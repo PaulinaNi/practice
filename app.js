@@ -13,7 +13,7 @@ function sumDigits(number) {
  //convert number to an array
  const digitsArray = Array.from(String(Math.abs(number)))
    
- //return absolute value(sum array by reduce method)
+ //return sum of absolute values(sum array by reduce method)
  return number===0? 0 : digitsArray.reduce((add1,add2)=> Number(add1)+Number(add2))
 }
 console.log(sumDigits(-126))
