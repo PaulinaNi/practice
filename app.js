@@ -70,6 +70,6 @@ function capitalize(s){
       case2 += s[i].toUpperCase()
     }
   } 
-  return [case1,case2];
+  return [case1,case2]
 };
 console.log(capitalize("abcdef"))
