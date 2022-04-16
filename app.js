@@ -113,3 +113,28 @@ function digital_root(n){
   return digitalRootArray[0]
 }
 console.log(digital_root(456))
+
+/* Task 6
+Task
+Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+
+Notes
+Array/list size is at least 2.
+
+Array/list numbers could be a mixture of positives, negatives also zeroes .
+
+Input >> Output Examples
+adjacentElementsProduct([1, 2, 3]); ==> return 6
+*/
+
+function adjacentElementsProduct(array) {
+  // const multiplyingArray = []
+  // for (let i = 0; i < array.length-1; i++){
+  //   multiplyingArray.push(array[i]*array[i+1])
+  // }
+  // return Math.max(...multiplyingArray)
+  return Math.max(...array.map((num, index)=> num * array[index+1]).slice(0,-1))
+
+}
+console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]))
+
