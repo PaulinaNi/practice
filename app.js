@@ -10,11 +10,11 @@ Let's assume that all numbers in the input will be integer values.
 */
 
 function sumDigits(number) {
- //convert number to an array
- const digitsArray = Array.from(String(Math.abs(number)))
-   
- //return sum of absolute values(sum array by reduce method)
- return number===0? 0 : digitsArray.reduce((add1,add2)=> Number(add1)+Number(add2))
+  //convert number to an array
+  const digitsArray = Array.from(String(Math.abs(number)))
+
+  //return sum of absolute values(sum array by reduce method)
+  return number === 0 ? 0 : digitsArray.reduce((add1, add2) => Number(add1) + Number(add2))
 }
 console.log(sumDigits(-126))
 
@@ -37,13 +37,13 @@ s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 */
 function printerError(s) {
- let errors = 0
- for(let i = 0; i< s.length; i++){
-  if (s[i] > "m") {
-   errors +=1;
- }
- }
- return `${errors}/${s.length}`
+  let errors = 0
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] > "m") {
+      errors += 1;
+    }
+  }
+  return `${errors}/${s.length}`
 }
 
 console.log(printerError("hithere"))
@@ -58,19 +58,19 @@ The input will be a lowercase string with no spaces.
 Good luck!
 */
 
-function capitalize(s){
+function capitalize(s) {
   let case1 = ""
   let case2 = ""
-  for(let i = 0; i < s.length; i++){
-    if(i%2 === 0){
+  for (let i = 0; i < s.length; i++) {
+    if (i % 2 === 0) {
       case1 += s[i].toUpperCase()
       case2 += s[i].toLowerCase()
-    } else{
+    } else {
       case1 += s[i].toLowerCase()
       case2 += s[i].toUpperCase()
     }
-  } 
-  return [case1,case2]
+  }
+  return [case1, case2]
 };
 console.log(capitalize("abcdef"))
 
@@ -84,11 +84,11 @@ Examples:(Input1, Input2 --> Output (explanation)))
 1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
 5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
 */
-function addBinary(a,b) {
-  const sum = a+b
-return sum.toString(2)
+function addBinary(a, b) {
+  const sum = a + b
+  return sum.toString(2)
 }
-console.log(addBinary(2,6))
+console.log(addBinary(2, 6))
 
 /* Task 5
 https://www.codewars.com/kata/541c8630095125aba6000c00
@@ -104,11 +104,11 @@ Examples
   493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
 */
 
-function digital_root(n){
-  let digitalRootArray = Array.from(String(n)).map(singleNum =>Number(singleNum))
-  for(let i = 0; digitalRootArray.length > 1; i++ ){
-    digitalRootArray = Array.from(String(digitalRootArray.reduce((sum, added)=> sum+added))).map(singleNum =>Number(singleNum))
-    
+function digital_root(n) {
+  let digitalRootArray = Array.from(String(n)).map(singleNum => Number(singleNum))
+  for (let i = 0; digitalRootArray.length > 1; i++) {
+    digitalRootArray = Array.from(String(digitalRootArray.reduce((sum, added) => sum + added))).map(singleNum => Number(singleNum))
+
   }
   return digitalRootArray[0]
 }
@@ -133,8 +133,52 @@ function adjacentElementsProduct(array) {
   //   multiplyingArray.push(array[i]*array[i+1])
   // }
   // return Math.max(...multiplyingArray)
-  return Math.max(...array.map((num, index)=> num * array[index+1]).slice(0,-1))
+  return Math.max(...array.map((num, index) => num * array[index + 1]).slice(0, -1))
 
 }
 console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]))
 
+/* Task 7
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0.
+*/
+function find_average(array) {
+  // sum all elements from array using reduce method and divide by array length
+  // use ternary operater to return 0 when empty array
+  return array.length === 0 ? 0 : array.reduce((x,y)=> x+y)/array.length
+}
+console.log(find_average([]))
+console.log(find_average([1,2,3,4]))
+
+/* Task 8
+Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
+
+For example: ["3:1", "2:2", "0:1", ...]
+
+Write a function that takes such collection and counts the points of our team in the championship. Rules for counting points for each match:
+
+if x > y: 3 points
+if x < y: 0 point
+if x = y: 1 point
+Notes:
+
+there are 10 matches in the championship
+0 <= x <= 4
+0 <= y <= 4
+*/
+function points(games) {
+  let finalScore = 0
+  games.map(game =>{
+    //decide how many points for this game
+    if(Number(game[0]) > Number(game[2])){
+      //add point to the final score
+      finalScore += 3
+    } else if(Number(game[0]) === Number(game[2])){
+      finalScore += 1
+    }
+  })
+  return finalScore
+}
+console.log(points(['0:1','0:2']))
+console.log(points(['1:0','2:0','3:0','4:0','2:1','1:3','1:4','2:3','2:4','3:4']))
