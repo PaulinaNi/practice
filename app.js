@@ -146,10 +146,10 @@ Note: Empty arrays should return 0.
 function find_average(array) {
   // sum all elements from array using reduce method and divide by array length
   // use ternary operater to return 0 when empty array
-  return array.length === 0 ? 0 : array.reduce((x,y)=> x+y)/array.length
+  return array.length === 0 ? 0 : array.reduce((x, y) => x + y) / array.length
 }
 console.log(find_average([]))
-console.log(find_average([1,2,3,4]))
+console.log(find_average([1, 2, 3, 4]))
 
 /* Task 8
 Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
@@ -169,16 +169,44 @@ there are 10 matches in the championship
 */
 function points(games) {
   let finalScore = 0
-  games.map(game =>{
+  games.map(game => {
     //decide how many points for this game
-    if(Number(game[0]) > Number(game[2])){
+    if (Number(game[0]) > Number(game[2])) {
       //add point to the final score
       finalScore += 3
-    } else if(Number(game[0]) === Number(game[2])){
+    } else if (Number(game[0]) === Number(game[2])) {
       finalScore += 1
     }
   })
   return finalScore
 }
-console.log(points(['0:1','0:2']))
-console.log(points(['1:0','2:0','3:0','4:0','2:1','1:3','1:4','2:3','2:4','3:4']))
+console.log(points(['0:1', '0:2']))
+console.log(points(['1:0', '2:0', '3:0', '4:0', '2:1', '1:3', '1:4', '2:3', '2:4', '3:4']))
+
+/* Task 9
+Build a function that returns an array of integers from n to 1 where n>0.
+
+Example : n=5 --> [5,4,3,2,1]
+*/
+const reverseSeq = n => {
+  const arr = []
+  for (let i = n; i > 0; i--) {
+    arr.push(i)
+  }
+  return arr;
+};
+console.log(reverseSeq(5))
+
+/* Task 10 
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+For example:
+
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+*/
+function solution(nums) {
+  return nums === null ? [] : nums.sort((a, b) => a - b)
+}
+
+console.log(solution([2, 20, 10]))
