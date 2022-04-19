@@ -210,3 +210,23 @@ function solution(nums) {
 }
 
 console.log(solution([2, 20, 10]))
+
+/* Task 11
+Your task is to find the first element of an array that is not consecutive.
+
+By not consecutive we mean not exactly 1 larger than the previous element of the array.
+
+E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+
+If the whole array is consecutive then return null2.
+
+The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
+
+Can you write a solution that will return null for both [] and [ x ] though?
+*/
+function firstNonConsecutive(arr) {
+  const indexOfLastConsecutive = arr.indexOf(arr.find((el, i, arr) => el !== arr[i + 1] - 1))
+  return indexOfLastConsecutive !== -1 & indexOfLastConsecutive !== arr.length - 1 & arr.length > 0 ? arr[indexOfLastConsecutive + 1] : null
+}
+console.log("firstNonConsecutive", firstNonConsecutive([9, 10, 11, 12, 13, 14, 15, 16, 17, 18]))
+console.log("firstNonConsecutive", firstNonConsecutive([1]))
