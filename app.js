@@ -230,3 +230,49 @@ function firstNonConsecutive(arr) {
 }
 console.log("firstNonConsecutive", firstNonConsecutive([9, 10, 11, 12, 13, 14, 15, 16, 17, 18]))
 console.log("firstNonConsecutive", firstNonConsecutive([1]))
+
+/* Task 12
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+Examples input/output:
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+
+*/
+function XO(str) {
+  //convert to array so you can use array method it
+  const strArray = Array.from(str)
+  console.log(str)
+  console.log(strArray)
+ 
+  //check if array have x and o
+  if (strArray.some(letter => letter === "x" || letter === "X" || letter === "o" || letter === "O")) {
+   let xCount = 0
+   let oCount = 0
+   let otherLettersCount = 0
+   //use for loop to count x, o and other letters
+   for (let i = 0; i < strArray.length; i++) {
+    if (strArray[i] === "x" || strArray[i] === "X") {
+     xCount += 1
+    }
+    else if (strArray[i] === "o" || strArray[i] === "O") {
+     oCount += 1
+    } else {
+     otherLettersCount += 1
+    }
+   }
+   //compare letter counts and return proper boolean
+   if (xCount === oCount && otherLettersCount === 0) {
+    return true
+   } else {
+    return false
+   }
+  } else {
+   return true
+  }
+ }
+ console.log(XO("xXoo"))
