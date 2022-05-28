@@ -16,7 +16,7 @@ function sumDigits(number) {
   //return sum of absolute values(sum array by reduce method)
   return number === 0 ? 0 : digitsArray.reduce((add1, add2) => Number(add1) + Number(add2))
 }
-console.log(sumDigits(-126))
+// console.log(sumDigits(-126))
 
 /* Task 2
 In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
@@ -36,6 +36,7 @@ printer_error(s) => "0/14"
 s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 */
+
 function printerError(s) {
   let errors = 0
   for (let i = 0; i < s.length; i++) {
@@ -46,7 +47,7 @@ function printerError(s) {
   return `${errors}/${s.length}`
 }
 
-console.log(printerError("hithere"))
+// console.log(printerError("hithere"))
 
 /* Task 3
 Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below. Index 0 will be considered even.
@@ -72,7 +73,7 @@ function capitalize(s) {
   }
   return [case1, case2]
 };
-console.log(capitalize("abcdef"))
+// console.log(capitalize("abcdef"))
 
 /* Task 4 
 Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
@@ -88,7 +89,7 @@ function addBinary(a, b) {
   const sum = a + b
   return sum.toString(2)
 }
-console.log(addBinary(2, 6))
+// console.log(addBinary(2, 6))
 
 /* Task 5
 https://www.codewars.com/kata/541c8630095125aba6000c00
@@ -112,7 +113,7 @@ function digital_root(n) {
   }
   return digitalRootArray[0]
 }
-console.log(digital_root(456))
+// console.log(digital_root(456))
 
 /* Task 6
 Task
@@ -136,7 +137,7 @@ function adjacentElementsProduct(array) {
   return Math.max(...array.map((num, index) => num * array[index + 1]).slice(0, -1))
 
 }
-console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]))
+// console.log(adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]))
 
 /* Task 7
 Write a function which calculates the average of the numbers in a given list.
@@ -148,8 +149,8 @@ function find_average(array) {
   // use ternary operater to return 0 when empty array
   return array.length === 0 ? 0 : array.reduce((x, y) => x + y) / array.length
 }
-console.log(find_average([]))
-console.log(find_average([1, 2, 3, 4]))
+// console.log(find_average([]))
+// console.log(find_average([1, 2, 3, 4]))
 
 /* Task 8
 Our football team finished the championship. The result of each match look like "x:y". Results of all matches are recorded in the collection.
@@ -180,8 +181,8 @@ function points(games) {
   })
   return finalScore
 }
-console.log(points(['0:1', '0:2']))
-console.log(points(['1:0', '2:0', '3:0', '4:0', '2:1', '1:3', '1:4', '2:3', '2:4', '3:4']))
+// console.log(points(['0:1', '0:2']))
+// console.log(points(['1:0', '2:0', '3:0', '4:0', '2:1', '1:3', '1:4', '2:3', '2:4', '3:4']))
 
 /* Task 9
 Build a function that returns an array of integers from n to 1 where n>0.
@@ -195,7 +196,7 @@ const reverseSeq = n => {
   }
   return arr;
 };
-console.log(reverseSeq(5))
+// console.log(reverseSeq(5))
 
 /* Task 10 
 Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
@@ -209,7 +210,7 @@ function solution(nums) {
   return nums === null ? [] : nums.sort((a, b) => a - b)
 }
 
-console.log(solution([2, 20, 10]))
+// console.log(solution([2, 20, 10]))
 
 /* Task 11
 Your task is to find the first element of an array that is not consecutive.
@@ -228,8 +229,8 @@ function firstNonConsecutive(arr) {
   const indexOfLastConsecutive = arr.indexOf(arr.find((el, i, arr) => el !== arr[i + 1] - 1))
   return indexOfLastConsecutive !== -1 & indexOfLastConsecutive !== arr.length - 1 & arr.length > 0 ? arr[indexOfLastConsecutive + 1] : null
 }
-console.log("firstNonConsecutive", firstNonConsecutive([9, 10, 11, 12, 13, 14, 15, 16, 17, 18]))
-console.log("firstNonConsecutive", firstNonConsecutive([1]))
+// console.log("firstNonConsecutive", firstNonConsecutive([9, 10, 11, 12, 13, 14, 15, 16, 17, 18]))
+// console.log("firstNonConsecutive", firstNonConsecutive([1]))
 
 /* Task 12
 Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
@@ -248,31 +249,75 @@ function XO(str) {
   const strArray = Array.from(str)
   console.log(str)
   console.log(strArray)
- 
+
   //check if array have x and o
   if (strArray.some(letter => letter === "x" || letter === "X" || letter === "o" || letter === "O")) {
-   let xCount = 0
-   let oCount = 0
-   let otherLettersCount = 0
-   //use for loop to count x, o and other letters
-   for (let i = 0; i < strArray.length; i++) {
-    if (strArray[i] === "x" || strArray[i] === "X") {
-     xCount += 1
+    let xCount = 0
+    let oCount = 0
+    let otherLettersCount = 0
+    //use for loop to count x, o and other letters
+    for (let i = 0; i < strArray.length; i++) {
+      if (strArray[i] === "x" || strArray[i] === "X") {
+        xCount += 1
+      }
+      else if (strArray[i] === "o" || strArray[i] === "O") {
+        oCount += 1
+      } else {
+        otherLettersCount += 1
+      }
     }
-    else if (strArray[i] === "o" || strArray[i] === "O") {
-     oCount += 1
+    //compare letter counts and return proper boolean
+    if (xCount === oCount && otherLettersCount === 0) {
+      return true
     } else {
-     otherLettersCount += 1
+      return false
     }
-   }
-   //compare letter counts and return proper boolean
-   if (xCount === oCount && otherLettersCount === 0) {
-    return true
-   } else {
-    return false
-   }
   } else {
-   return true
+    return true
   }
- }
- console.log(XO("xXoo"))
+}
+
+//shorter version 
+//  function XO(str) {
+//   let x = str.match(/x/gi);
+//   let o = str.match(/o/gi);
+//   return (x && x.length) === (o && o.length);
+// }
+// console.log(XO("xXoo"))
+
+/* Task 13
+We need a function that can transform a number into a string.
+
+Examples:
+123 --> "123"
+999 --> "999" 
+*/
+
+function numberToString(num) {
+  return num.toString()
+}
+
+// console.log(numberToString(5))
+
+/* Task 14 
+Create a function with two arguments that will return an array of the first (n) multiples of (x).
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array (or list in Python, Haskell or Elixir).
+
+Examples:
+
+countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
+countBy(2,5) === [2,4,6,8,10]
+*/
+
+function countBy(x, n) {
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(x * i)
+  }
+  return z;
+}
+
+// console.log(countBy(2, 5))
