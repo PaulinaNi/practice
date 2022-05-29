@@ -321,3 +321,59 @@ function countBy(x, n) {
 }
 
 // console.log(countBy(2, 5))
+
+/* Task 15
+This time no story, no theory. The examples below show you how to write function accum:
+
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+*/
+
+//using loops
+function accum(s) {
+  let newString = ""
+  for (let i = 0; i < s.length; i++) {
+    let stringPart = ""
+    for (let y = 1; y <= i + 1; y++) {
+      if (y === 1) {
+        stringPart += s[i].toUpperCase()
+      }
+      else {
+        stringPart += s[i].toLowerCase()
+      }
+    }
+    if (i === s.length - 1) {
+      newString += stringPart
+    } else {
+      newString += `${stringPart}-`
+    }
+  }
+  return newString
+}
+
+//using methods
+
+// function accum(s) {
+//   return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+// }
+
+// console.log(accum("abcd"))
+
+/* Task 16
+
+You ask a small girl,"How old are you?" She always says, "x years old", where x is a random number between 0 and 9.
+
+Write a program that returns the girl's age (0-9) as an integer.
+
+Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+*/
+
+function getAge(inputString) {
+  return Number(inputString.split(" ", 1)[0])
+}
+
+// console.log(getAge("4 years old"))
